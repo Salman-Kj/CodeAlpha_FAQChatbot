@@ -1,0 +1,805 @@
+[
+  {
+    "question": "What is Python?",
+    "answer": "Python is a high-level programming language known for its simplicity and readability."
+  },
+  {
+    "question": "What are the main features of Python?",
+    "answer": "Python is simple, interpreted, dynamically typed, object-oriented, and has a large standard library."
+  },
+  {
+    "question": "Why is Python popular?",
+    "answer": "Python is popular because it is easy to learn and widely used in web development, AI, data science, automation, and software development."
+  },
+  {
+    "question": "What is a Python variable?",
+    "answer": "A variable in Python is a name used to store a value."
+  },
+  {
+    "question": "How do I create a variable in Python?",
+    "answer": "You create a Python variable by assigning a value using the equals sign, such as x = 10."
+  },
+  {
+    "question": "What are Python data types?",
+    "answer": "Common Python data types include string, integer, float, boolean, list, tuple, set, and dictionary."
+  },
+  {
+    "question": "What is a string in Python?",
+    "answer": "A string is a sequence of characters enclosed in quotes."
+  },
+  {
+    "question": "What is an integer in Python?",
+    "answer": "An integer is a whole number without a decimal point."
+  },
+  {
+    "question": "What is a float in Python?",
+    "answer": "A float is a number that contains a decimal value."
+  },
+  {
+    "question": "What is a boolean in Python?",
+    "answer": "A boolean represents one of two values: True or False."
+  },
+  {
+    "question": "What is a Python list?",
+    "answer": "A list is an ordered and changeable collection of items."
+  },
+  {
+    "question": "What is a Python tuple?",
+    "answer": "A tuple is an ordered collection of items that cannot normally be changed after creation."
+  },
+  {
+    "question": "What is a Python dictionary?",
+    "answer": "A dictionary stores data as key-value pairs."
+  },
+  {
+    "question": "What is a Python set?",
+    "answer": "A set is an unordered collection that stores unique values."
+  },
+  {
+    "question": "What is a Python function?",
+    "answer": "A function is a reusable block of code designed to perform a specific task."
+  },
+  {
+    "question": "How do you define a function in Python?",
+    "answer": "A function is defined using the def keyword followed by the function name and parameters."
+  },
+  {
+    "question": "What is a Python loop?",
+    "answer": "A loop repeatedly executes a block of code."
+  },
+  {
+    "question": "What is a for loop in Python?",
+    "answer": "A for loop is used to iterate over items in a sequence or collection."
+  },
+  {
+    "question": "What is a while loop in Python?",
+    "answer": "A while loop repeatedly runs code as long as a condition is true."
+  },
+  {
+    "question": "What is an if statement in Python?",
+    "answer": "An if statement executes code when a specified condition is true."
+  },
+  {
+    "question": "What is object oriented programming?",
+    "answer": "Object-oriented programming is a programming approach based on classes and objects."
+  },
+  {
+    "question": "What is a class in Python?",
+    "answer": "A class is a blueprint used to create objects."
+  },
+  {
+    "question": "What is an object in Python?",
+    "answer": "An object is an instance of a class containing data and behavior."
+  },
+  {
+    "question": "What is inheritance in Python?",
+    "answer": "Inheritance allows one class to reuse properties and methods from another class."
+  },
+  {
+    "question": "What is exception handling in Python?",
+    "answer": "Exception handling allows programs to manage errors using mechanisms such as try and except."
+  },
+  {
+    "question": "What is pip in Python?",
+    "answer": "Pip is Python's package manager used to install and manage Python packages."
+  },
+  {
+    "question": "How do I install a Python package?",
+    "answer": "You can install a Python package using the command pip install package_name."
+  },
+  {
+    "question": "What is a Python module?",
+    "answer": "A Python module is a file containing Python code that can be imported into another program."
+  },
+  {
+    "question": "What is a Python library?",
+    "answer": "A Python library is a collection of reusable code that helps developers perform specific tasks."
+  },
+  {
+    "question": "What is an API?",
+    "answer": "An API is a set of rules that allows different software applications to communicate with each other."
+  },
+
+  {
+    "question": "What is artificial intelligence?",
+    "answer": "Artificial intelligence is the field of creating computer systems that can perform tasks that normally require human intelligence."
+  },
+  {
+    "question": "What does AI stand for?",
+    "answer": "AI stands for Artificial Intelligence."
+  },
+  {
+    "question": "What is machine learning?",
+    "answer": "Machine learning is a branch of AI that enables computers to learn patterns from data."
+  },
+  {
+    "question": "What is deep learning?",
+    "answer": "Deep learning is a type of machine learning that uses multi-layer neural networks."
+  },
+  {
+    "question": "What is supervised learning?",
+    "answer": "Supervised learning trains a model using labeled data."
+  },
+  {
+    "question": "What is unsupervised learning?",
+    "answer": "Unsupervised learning finds patterns in data without labeled outputs."
+  },
+  {
+    "question": "What is reinforcement learning?",
+    "answer": "Reinforcement learning trains an agent through rewards and penalties."
+  },
+  {
+    "question": "What is a machine learning model?",
+    "answer": "A machine learning model is a mathematical system trained to make predictions or decisions from data."
+  },
+  {
+    "question": "What is training data?",
+    "answer": "Training data is the data used to teach a machine learning model."
+  },
+  {
+    "question": "What is testing data?",
+    "answer": "Testing data is data used to evaluate how well a trained model performs on unseen examples."
+  },
+  {
+    "question": "What is a dataset?",
+    "answer": "A dataset is a collection of structured or unstructured data used for analysis or machine learning."
+  },
+  {
+    "question": "What is classification in machine learning?",
+    "answer": "Classification is a machine learning task that assigns data to predefined categories."
+  },
+  {
+    "question": "What is regression in machine learning?",
+    "answer": "Regression predicts a continuous numerical value."
+  },
+  {
+    "question": "What is clustering?",
+    "answer": "Clustering groups similar data points together without predefined labels."
+  },
+  {
+    "question": "What is an algorithm?",
+    "answer": "An algorithm is a step-by-step procedure for solving a problem."
+  },
+  {
+    "question": "What is a neural network?",
+    "answer": "A neural network is a machine learning model inspired by the structure of the human brain."
+  },
+  {
+    "question": "What is a neuron in AI?",
+    "answer": "A neuron is a basic computational unit in a neural network that processes input values."
+  },
+  {
+    "question": "What is overfitting?",
+    "answer": "Overfitting happens when a model learns training data too closely and performs poorly on new data."
+  },
+  {
+    "question": "What is underfitting?",
+    "answer": "Underfitting happens when a model is too simple to learn important patterns from the data."
+  },
+  {
+    "question": "What is model accuracy?",
+    "answer": "Accuracy measures the percentage of predictions that a classification model gets correct."
+  },
+  {
+    "question": "What is precision in machine learning?",
+    "answer": "Precision measures how many predicted positive results are actually positive."
+  },
+  {
+    "question": "What is recall in machine learning?",
+    "answer": "Recall measures how many actual positive cases were correctly identified."
+  },
+  {
+    "question": "What is F1 score?",
+    "answer": "F1 score is the harmonic mean of precision and recall."
+  },
+  {
+    "question": "What is a confusion matrix?",
+    "answer": "A confusion matrix shows the correct and incorrect predictions of a classification model."
+  },
+  {
+    "question": "What is feature engineering?",
+    "answer": "Feature engineering is the process of creating or transforming input features to improve a machine learning model."
+  },
+  {
+    "question": "What is data preprocessing?",
+    "answer": "Data preprocessing prepares raw data for analysis or machine learning by cleaning and transforming it."
+  },
+  {
+    "question": "What is normalization in machine learning?",
+    "answer": "Normalization scales numerical values to a common range."
+  },
+  {
+    "question": "What is standardization?",
+    "answer": "Standardization transforms data so that it generally has a mean of zero and a standard deviation of one."
+  },
+  {
+    "question": "What is an epoch in deep learning?",
+    "answer": "An epoch is one complete pass through the training dataset."
+  },
+  {
+    "question": "What is a loss function?",
+    "answer": "A loss function measures how far a model's predictions are from the correct values."
+  },
+  {
+    "question": "What is an optimizer in machine learning?",
+    "answer": "An optimizer adjusts model parameters to reduce the loss during training."
+  },
+
+  {
+    "question": "What is ChatGPT?",
+    "answer": "ChatGPT is an AI assistant designed to understand and generate natural language."
+  },
+  {
+    "question": "What can ChatGPT be used for?",
+    "answer": "ChatGPT can help with coding, writing, learning, brainstorming, analysis, and many other tasks."
+  },
+  {
+    "question": "What is Google Gemini?",
+    "answer": "Google Gemini is Google's family of generative AI models and AI assistant."
+  },
+  {
+    "question": "What is Claude AI?",
+    "answer": "Claude is an AI assistant developed by Anthropic for tasks such as writing, analysis, coding, and reasoning."
+  },
+  {
+    "question": "What is Microsoft Copilot?",
+    "answer": "Microsoft Copilot is an AI assistant integrated into various Microsoft products and services."
+  },
+  {
+    "question": "What is GitHub Copilot?",
+    "answer": "GitHub Copilot is an AI coding assistant that helps developers write and understand code."
+  },
+  {
+    "question": "What is Google AI Studio?",
+    "answer": "Google AI Studio is a development environment for experimenting with Google's generative AI models and building AI applications."
+  },
+  {
+    "question": "What is Hugging Face?",
+    "answer": "Hugging Face is an AI platform and community that provides models, datasets, libraries, and tools for machine learning."
+  },
+  {
+    "question": "What is Hugging Face Transformers?",
+    "answer": "Transformers is a library that provides pretrained models for natural language processing, computer vision, and other AI tasks."
+  },
+  {
+    "question": "What is OpenAI?",
+    "answer": "OpenAI is an AI research and technology company that develops artificial intelligence models and products."
+  },
+  {
+    "question": "What is generative AI?",
+    "answer": "Generative AI creates new content such as text, images, audio, video, or code."
+  },
+  {
+    "question": "What are AI coding tools?",
+    "answer": "AI coding tools help developers generate, explain, debug, and improve programming code."
+  },
+  {
+    "question": "What is an AI chatbot?",
+    "answer": "An AI chatbot is software that uses artificial intelligence to communicate with users through natural language."
+  },
+  {
+    "question": "What is prompt engineering?",
+    "answer": "Prompt engineering is the process of designing effective instructions for AI models."
+  },
+  {
+    "question": "What is an AI prompt?",
+    "answer": "An AI prompt is an instruction or input given to an AI model to produce a response."
+  },
+  {
+    "question": "What is computer vision?",
+    "answer": "Computer vision enables computers to analyze and understand images and videos."
+  },
+  {
+    "question": "What is natural language processing?",
+    "answer": "Natural language processing enables computers to understand and process human language."
+  },
+  {
+    "question": "What is speech recognition?",
+    "answer": "Speech recognition converts spoken language into text or commands."
+  },
+  {
+    "question": "What is text generation?",
+    "answer": "Text generation uses AI models to automatically produce human-like text."
+  },
+  {
+    "question": "What is image generation AI?",
+    "answer": "Image generation AI creates images from text prompts or other inputs."
+  },
+  {
+    "question": "What is an AI agent?",
+    "answer": "An AI agent is a system that can perceive information, reason about tasks, and take actions to achieve goals."
+  },
+  {
+    "question": "What is an LLM?",
+    "answer": "LLM stands for Large Language Model, an AI model trained on large amounts of text to understand and generate language."
+  },
+  {
+    "question": "What does LLM stand for?",
+    "answer": "LLM stands for Large Language Model."
+  },
+  {
+    "question": "What is a large language model used for?",
+    "answer": "Large language models can be used for conversation, writing, summarization, coding, translation, and question answering."
+  },
+  {
+    "question": "What is RAG in AI?",
+    "answer": "RAG stands for Retrieval-Augmented Generation and combines information retrieval with AI-generated responses."
+  },
+  {
+    "question": "What is an AI API?",
+    "answer": "An AI API allows software applications to communicate with an AI model programmatically."
+  },
+  {
+    "question": "What is AI automation?",
+    "answer": "AI automation uses artificial intelligence to perform tasks with reduced manual effort."
+  },
+  {
+    "question": "What is AI-assisted programming?",
+    "answer": "AI-assisted programming uses AI tools to help developers write, explain, debug, and improve code."
+  },
+  {
+    "question": "What is machine learning automation?",
+    "answer": "Machine learning automation uses automated processes to build, train, test, or deploy machine learning models."
+  },
+  {
+    "question": "What is an AI model?",
+    "answer": "An AI model is a computational system trained to perform tasks such as prediction, classification, generation, or recognition."
+  },
+
+  {
+    "question": "What is Visual Studio Code?",
+    "answer": "Visual Studio Code is a lightweight source-code editor developed by Microsoft."
+  },
+  {
+    "question": "What is VS Code used for?",
+    "answer": "VS Code is used for writing, editing, debugging, and managing software projects."
+  },
+  {
+    "question": "What is PyCharm?",
+    "answer": "PyCharm is an integrated development environment designed primarily for Python development."
+  },
+  {
+    "question": "What is Jupyter Notebook?",
+    "answer": "Jupyter Notebook is an interactive environment commonly used for Python, data science, visualization, and machine learning."
+  },
+  {
+    "question": "What is Anaconda?",
+    "answer": "Anaconda is a Python distribution that simplifies package and environment management for data science."
+  },
+  {
+    "question": "What is Spyder?",
+    "answer": "Spyder is an IDE designed for scientific computing and Python data analysis."
+  },
+  {
+    "question": "What is Sublime Text?",
+    "answer": "Sublime Text is a fast and lightweight text editor used for coding and writing."
+  },
+  {
+    "question": "What is Notepad++?",
+    "answer": "Notepad++ is a lightweight source-code and text editor for Windows."
+  },
+  {
+    "question": "What is IntelliJ IDEA?",
+    "answer": "IntelliJ IDEA is an IDE primarily designed for Java and JVM-based development."
+  },
+  {
+    "question": "What is Eclipse?",
+    "answer": "Eclipse is an extensible IDE commonly used for Java and other programming languages."
+  },
+  {
+    "question": "What is Android Studio?",
+    "answer": "Android Studio is the official IDE for Android application development."
+  },
+  {
+    "question": "What is Visual Studio?",
+    "answer": "Visual Studio is a full-featured IDE from Microsoft used to develop applications across multiple platforms."
+  },
+  {
+    "question": "What is a code editor?",
+    "answer": "A code editor is software designed for writing and editing source code."
+  },
+  {
+    "question": "What is an IDE?",
+    "answer": "IDE stands for Integrated Development Environment and provides tools for coding, debugging, and project management."
+  },
+  {
+    "question": "What is debugging?",
+    "answer": "Debugging is the process of finding and fixing errors in software."
+  },
+  {
+    "question": "What is a compiler?",
+    "answer": "A compiler translates source code into another form that can be executed by a computer."
+  },
+  {
+    "question": "What is an interpreter?",
+    "answer": "An interpreter executes or processes source code during program execution."
+  },
+  {
+    "question": "What software is best for Python coding?",
+    "answer": "Popular options for Python coding include VS Code, PyCharm, Jupyter Notebook, and Spyder."
+  },
+  {
+    "question": "Which software can I use for AI programming?",
+    "answer": "VS Code, PyCharm, Jupyter Notebook, Google AI Studio, and cloud-based development platforms can be used for AI programming."
+  },
+  {
+    "question": "What software is used for web development?",
+    "answer": "Developers commonly use VS Code, Visual Studio, WebStorm, browser developer tools, and other IDEs for web development."
+  },
+
+  {
+    "question": "What is NumPy?",
+    "answer": "NumPy is a Python library for numerical computing and working with arrays."
+  },
+  {
+    "question": "What is pandas?",
+    "answer": "Pandas is a Python library used for data manipulation and analysis."
+  },
+  {
+    "question": "What is Matplotlib?",
+    "answer": "Matplotlib is a Python library used to create charts and data visualizations."
+  },
+  {
+    "question": "What is Seaborn?",
+    "answer": "Seaborn is a Python visualization library built on top of Matplotlib."
+  },
+  {
+    "question": "What is SciPy?",
+    "answer": "SciPy is a Python library for scientific and technical computing."
+  },
+  {
+    "question": "What is scikit-learn?",
+    "answer": "Scikit-learn is a Python library that provides tools for machine learning and data analysis."
+  },
+  {
+    "question": "What is TensorFlow?",
+    "answer": "TensorFlow is an open-source machine learning framework developed by Google."
+  },
+  {
+    "question": "What is PyTorch?",
+    "answer": "PyTorch is an open-source machine learning framework widely used for deep learning and research."
+  },
+  {
+    "question": "What is Keras?",
+    "answer": "Keras is a high-level deep learning API that makes it easier to build and train neural networks."
+  },
+  {
+    "question": "What is OpenCV?",
+    "answer": "OpenCV is an open-source computer vision library used for image and video processing."
+  },
+  {
+    "question": "What is Pillow in Python?",
+    "answer": "Pillow is a Python imaging library used to open, manipulate, and save image files."
+  },
+  {
+    "question": "What is NLTK?",
+    "answer": "NLTK is a Python library for natural language processing and text analysis."
+  },
+  {
+    "question": "What is spaCy?",
+    "answer": "spaCy is a Python library designed for efficient natural language processing."
+  },
+  {
+    "question": "What is Transformers library?",
+    "answer": "The Transformers library provides pretrained AI models for tasks involving text, images, audio, and multimodal data."
+  },
+  {
+    "question": "What is LangChain?",
+    "answer": "LangChain is a framework for developing applications that use large language models."
+  },
+  {
+    "question": "What is Streamlit?",
+    "answer": "Streamlit is a Python framework for quickly creating interactive data and machine learning web applications."
+  },
+  {
+    "question": "What is Flask?",
+    "answer": "Flask is a lightweight Python web framework used to build web applications and APIs."
+  },
+  {
+    "question": "What is FastAPI?",
+    "answer": "FastAPI is a modern Python framework for building APIs."
+  },
+  {
+    "question": "What is Django?",
+    "answer": "Django is a high-level Python web framework designed for building secure and scalable web applications."
+  },
+  {
+    "question": "What is BeautifulSoup?",
+    "answer": "BeautifulSoup is a Python library commonly used to parse and extract information from HTML and XML documents."
+  },
+  {
+    "question": "What is Requests in Python?",
+    "answer": "Requests is a Python library used to send HTTP requests and communicate with web services."
+  },
+  {
+    "question": "What is JSON?",
+    "answer": "JSON is a lightweight data format commonly used for storing and exchanging structured information."
+  },
+  {
+    "question": "What is pickle in Python?",
+    "answer": "Pickle is a Python module used to serialize and deserialize Python objects."
+  },
+  {
+    "question": "What is joblib?",
+    "answer": "Joblib is a Python library useful for saving and loading objects and efficiently handling certain computational tasks."
+  },
+  {
+    "question": "What is Plotly?",
+    "answer": "Plotly is a library for creating interactive data visualizations."
+  },
+  {
+    "question": "What is XGBoost?",
+    "answer": "XGBoost is a machine learning library that implements efficient gradient boosting algorithms."
+  },
+
+  {
+    "question": "What is a machine learning framework?",
+    "answer": "A machine learning framework provides tools and libraries for developing, training, and deploying machine learning models."
+  },
+  {
+    "question": "What is deep learning framework?",
+    "answer": "A deep learning framework provides tools for building and training neural networks."
+  },
+  {
+    "question": "What is TensorFlow used for?",
+    "answer": "TensorFlow is used for developing and training machine learning and deep learning models."
+  },
+  {
+    "question": "What is PyTorch used for?",
+    "answer": "PyTorch is used to develop, train, and deploy machine learning and deep learning models."
+  },
+  {
+    "question": "Why use scikit-learn?",
+    "answer": "Scikit-learn provides simple and effective tools for common machine learning tasks."
+  },
+  {
+    "question": "Why use pandas in AI?",
+    "answer": "Pandas helps AI and data science projects clean, transform, analyze, and prepare datasets."
+  },
+  {
+    "question": "Why use NumPy in machine learning?",
+    "answer": "NumPy provides efficient numerical arrays and mathematical operations that are useful in machine learning."
+  },
+  {
+    "question": "Why use Matplotlib in data science?",
+    "answer": "Matplotlib helps data scientists visualize patterns, trends, and relationships in data."
+  },
+  {
+    "question": "What is model training?",
+    "answer": "Model training is the process of teaching a machine learning model using data."
+  },
+  {
+    "question": "What is model deployment?",
+    "answer": "Model deployment means making a trained machine learning model available for real-world use."
+  },
+  {
+    "question": "What is MLOps?",
+    "answer": "MLOps combines machine learning development with software engineering and operations practices."
+  },
+  {
+    "question": "What is computer vision library?",
+    "answer": "A computer vision library provides tools for processing and analyzing images and videos."
+  },
+  {
+    "question": "What is NLP library?",
+    "answer": "An NLP library provides tools for processing and analyzing human language."
+  },
+  {
+    "question": "What is tokenization?",
+    "answer": "Tokenization divides text into smaller units such as words, subwords, or characters."
+  },
+  {
+    "question": "What is stemming?",
+    "answer": "Stemming reduces words to simpler root-like forms by removing prefixes or suffixes."
+  },
+  {
+    "question": "What is lemmatization?",
+    "answer": "Lemmatization converts words into their meaningful base or dictionary form."
+  },
+  {
+    "question": "What are stop words?",
+    "answer": "Stop words are common words that are sometimes removed during text preprocessing because they may carry limited useful information."
+  },
+  {
+    "question": "What is TF-IDF?",
+    "answer": "TF-IDF is a technique that represents the importance of words in documents based on their frequency."
+  },
+  {
+    "question": "What is cosine similarity?",
+    "answer": "Cosine similarity measures how similar two vectors are by comparing the angle between them."
+  },
+  {
+    "question": "What is text preprocessing?",
+    "answer": "Text preprocessing cleans and transforms text before it is used for NLP or machine learning."
+  },
+  {
+    "question": "What is sentiment analysis?",
+    "answer": "Sentiment analysis identifies the emotional tone or opinion expressed in text."
+  },
+  {
+    "question": "What is named entity recognition?",
+    "answer": "Named entity recognition identifies entities such as people, organizations, locations, and dates in text."
+  },
+  {
+    "question": "What is chatbot intent detection?",
+    "answer": "Intent detection identifies what a user is trying to accomplish with their message."
+  },
+  {
+    "question": "How does an FAQ chatbot work?",
+    "answer": "An FAQ chatbot compares a user's question with stored questions and returns the answer that best matches."
+  },
+  {
+    "question": "What is chatbot training data?",
+    "answer": "Chatbot training data consists of questions, answers, examples, or other information used to build or improve a chatbot."
+  },
+  {
+    "question": "What is chatbot fallback?",
+    "answer": "A fallback response is shown when a chatbot cannot find a sufficiently relevant answer."
+  },
+  {
+    "question": "What is Streamlit used for in AI?",
+    "answer": "Streamlit can be used to create simple interactive web interfaces for AI and machine learning applications."
+  },
+
+  {
+    "question": "What is SQL?",
+    "answer": "SQL stands for Structured Query Language and is used to manage and query relational databases."
+  },
+  {
+    "question": "What does SQL stand for?",
+    "answer": "SQL stands for Structured Query Language."
+  },
+  {
+    "question": "What is a database?",
+    "answer": "A database is an organized collection of data that can be stored, managed, and retrieved."
+  },
+  {
+    "question": "What is MySQL?",
+    "answer": "MySQL is a popular relational database management system that uses SQL."
+  },
+  {
+    "question": "What is PostgreSQL?",
+    "answer": "PostgreSQL is an open-source relational database management system."
+  },
+  {
+    "question": "What is SQLite?",
+    "answer": "SQLite is a lightweight relational database engine that stores the database in a single file."
+  },
+  {
+    "question": "What is MongoDB?",
+    "answer": "MongoDB is a NoSQL database that stores data in flexible document-oriented structures."
+  },
+  {
+    "question": "What is a relational database?",
+    "answer": "A relational database stores data in tables containing rows and columns."
+  },
+  {
+    "question": "What is a SQL table?",
+    "answer": "A SQL table stores related data in rows and columns."
+  },
+  {
+    "question": "What is a SQL query?",
+    "answer": "A SQL query is a command used to retrieve or manipulate data in a database."
+  },
+  {
+    "question": "What is SELECT in SQL?",
+    "answer": "SELECT is used to retrieve data from one or more database tables."
+  },
+  {
+    "question": "What is INSERT in SQL?",
+    "answer": "INSERT is used to add new records to a database table."
+  },
+  {
+    "question": "What is UPDATE in SQL?",
+    "answer": "UPDATE is used to modify existing records in a database."
+  },
+  {
+    "question": "What is DELETE in SQL?",
+    "answer": "DELETE is used to remove records from a database table."
+  },
+  {
+    "question": "What is a primary key?",
+    "answer": "A primary key uniquely identifies each record in a database table."
+  },
+
+  {
+    "question": "What is Git?",
+    "answer": "Git is a distributed version control system used to track changes in software projects."
+  },
+  {
+    "question": "What is GitHub?",
+    "answer": "GitHub is a platform for hosting, collaborating on, and managing Git repositories."
+  },
+  {
+    "question": "What is GitLab?",
+    "answer": "GitLab is a platform that provides Git repository hosting and software development tools."
+  },
+  {
+    "question": "What is version control?",
+    "answer": "Version control tracks changes to files and helps developers collaborate on software projects."
+  },
+  {
+    "question": "What is a Git repository?",
+    "answer": "A Git repository is a storage location containing a project's files and version history."
+  },
+  {
+    "question": "What is Git commit?",
+    "answer": "A Git commit records a set of changes in a repository's history."
+  },
+  {
+    "question": "What is Git push?",
+    "answer": "Git push uploads local commits to a remote repository."
+  },
+  {
+    "question": "What is Git pull?",
+    "answer": "Git pull retrieves changes from a remote repository and integrates them into the local branch."
+  },
+  {
+    "question": "What is a Git branch?",
+    "answer": "A Git branch is an independent line of development in a repository."
+  },
+  {
+    "question": "What is Docker?",
+    "answer": "Docker is a platform used to package and run applications in containers."
+  },
+  {
+    "question": "What is Postman?",
+    "answer": "Postman is a tool used to develop, test, and interact with APIs."
+  },
+  {
+    "question": "What is npm?",
+    "answer": "npm is the default package manager for Node.js."
+  },
+  {
+    "question": "What is Node.js?",
+    "answer": "Node.js is a JavaScript runtime that allows JavaScript to run outside a web browser."
+  },
+  {
+    "question": "What is JavaScript?",
+    "answer": "JavaScript is a programming language widely used for interactive web applications and other software."
+  },
+  {
+    "question": "What is HTML?",
+    "answer": "HTML stands for HyperText Markup Language and defines the structure of web pages."
+  },
+  {
+    "question": "What is CSS?",
+    "answer": "CSS stands for Cascading Style Sheets and controls the presentation and appearance of web pages."
+  },
+  {
+    "question": "What is React?",
+    "answer": "React is a JavaScript library for building user interfaces."
+  },
+  {
+    "question": "What is Next.js?",
+    "answer": "Next.js is a React framework used to build modern web applications."
+  },
+  {
+    "question": "What is Tailwind CSS?",
+    "answer": "Tailwind CSS is a utility-first CSS framework used to style web interfaces."
+  },
+  {
+    "question": "What is software development?",
+    "answer": "Software development is the process of designing, creating, testing, deploying, and maintaining software."
+  }
+]

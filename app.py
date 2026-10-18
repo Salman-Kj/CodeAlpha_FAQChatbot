@@ -1,0 +1,244 @@
+import html
+import json
+import re
+
+import nltk
+import streamlit as st
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+THRESHOLD = 0.15
+
+st.set_page_config(page_title="CodeAlpha_chat · AI FAQ Chatbot", page_icon="💠", layout="centered")
+
+
+# ---------------------------------------------------------------
+# Logos (inline SVG, shared gradient so everything matches)
+# ---------------------------------------------------------------
+def logo_svg(size=64, uid="a"):
+    return f"""<svg width="{size}" height="{size}" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="g{uid}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#22D3EE"/></linearGradient></defs>
+<rect width="64" height="64" rx="18" fill="url(#g{uid})"/>
+<path d="M17 20a6 6 0 0 1 6-6h18a6 6 0 0 1 6 6v14a6 6 0 0 1-6 6H31l-9 8v-8h-1a6 6 0 0 1-4-6z" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/>
+<g stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M25 32l7-10 8 10M25 32h15"/></g>
+<g fill="#fff"><circle cx="25" cy="32" r="3"/><circle cx="32" cy="22" r="3"/><circle cx="40" cy="32" r="3"/></g>
+</svg>"""
+
+
+def user_avatar(size=36):
+    return f"""<svg width="{size}" height="{size}" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<rect width="64" height="64" rx="18" fill="#1E2547"/><rect x="1.5" y="1.5" width="61" height="61" rx="16.5" fill="none" stroke="#3A4380" stroke-width="3"/>
+<circle cx="32" cy="25" r="9" fill="#A5B4FC"/><path d="M14 52c2-10 10-15 18-15s16 5 18 15z" fill="#A5B4FC"/></svg>"""
+
+
+# ---------------------------------------------------------------
+# NLP setup
+# ---------------------------------------------------------------
+@st.cache_resource
+def download_nltk_data():
+    for pkg, path in (("punkt", "tokenizers/punkt"), ("punkt_tab", "tokenizers/punkt_tab")):
+        try:
+            nltk.data.find(path)
+        except LookupError:
+            nltk.download(pkg, quiet=True)
+
+
+download_nltk_data()
+
+
+@st.cache_data
+def load_faq_data():
+    with open("faq_data.json", "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+faq_data = load_faq_data()
+
+
+def preprocess_text(text):
+    text = re.sub(r"[^a-z0-9\s]", " ", text.lower())
+    text = re.sub(r"\s+", " ", text).strip()
+    return " ".join(nltk.word_tokenize(text))
+
+
+@st.cache_resource
+def build_index():
+    vec = TfidfVectorizer()
+    mat = vec.fit_transform([preprocess_text(i["question"]) for i in faq_data])
+    return vec, mat
+
+
+vectorizer, faq_vectors = build_index()
+
+
+def get_best_answer(question):
+    sims = cosine_similarity(vectorizer.transform([preprocess_text(question)]), faq_vectors)[0]
+    idx = sims.argmax()
+    return faq_data[idx]["answer"], float(sims[idx])
+
+
+# ---------------------------------------------------------------
+# Styling
+# ---------------------------------------------------------------
+st.markdown(
+    """
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Manrope:wght@400;500;600&display=swap');
+
+:root{
+  --bg:#0A0E24; --panel:#121838; --line:#262E5E; --text:#E8EBFF; --muted:#9AA3D6;
+  --violet:#8B5CF6; --cyan:#22D3EE;
+}
+html, body, [class*="css"], .stApp { font-family:'Manrope',sans-serif; color:var(--text); }
+.stApp{
+  background:
+    radial-gradient(900px 500px at 12% -10%, rgba(139,92,246,.30), transparent 60%),
+    radial-gradient(800px 500px at 100% 0%, rgba(34,211,238,.18), transparent 55%),
+    var(--bg);
+}
+#MainMenu, footer, header[data-testid="stHeader"]{ visibility:hidden; height:0; }
+.block-container{ padding-top:2.2rem; padding-bottom:7rem; max-width:760px; }
+
+/* Hero */
+.hero{ text-align:center; padding:8px 0 22px; }
+.hero svg{ filter:drop-shadow(0 12px 32px rgba(139,92,246,.55)); }
+.hero h1{ font-family:'Sora',sans-serif; font-weight:800; font-size:2.6rem; letter-spacing:-.02em; margin:14px 0 6px;
+  background:linear-gradient(90deg,#fff,#C4B5FD 55%,#67E8F9); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero p{ color:var(--muted); font-size:1.02rem; margin:0; }
+.status{ display:inline-flex; align-items:center; gap:8px; margin-top:14px; padding:5px 14px; border-radius:999px;
+  background:rgba(34,211,238,.08); border:1px solid rgba(34,211,238,.28); color:#A5F3FC; font-size:.8rem; font-weight:600; }
+.status i{ width:7px; height:7px; border-radius:50%; background:var(--cyan); box-shadow:0 0 0 0 rgba(34,211,238,.7); animation:pulse 2s infinite; }
+@keyframes pulse{ 70%{ box-shadow:0 0 0 8px rgba(34,211,238,0);} 100%{ box-shadow:0 0 0 0 rgba(34,211,238,0);} }
+
+/* Messages */
+.row{ display:flex; gap:12px; margin:16px 0; align-items:flex-start; }
+.row.user{ flex-direction:row-reverse; }
+.row .av{ flex:0 0 36px; }
+.bubble{ max-width:82%; padding:14px 18px; border-radius:18px; line-height:1.6; font-size:.97rem; }
+.row.bot .bubble{ background:var(--panel); border:1px solid var(--line); border-top-left-radius:6px; box-shadow:0 8px 30px rgba(0,0,0,.25); }
+.row.user .bubble{ background:linear-gradient(135deg,#7C3AED,#2563EB); border-top-right-radius:6px; color:#fff; }
+.row.warn .bubble{ border-color:rgba(251,191,36,.45); }
+.meter{ margin-top:12px; display:flex; align-items:center; gap:10px; font-size:.75rem; color:var(--muted); }
+.meter .bar{ flex:1; height:5px; border-radius:99px; background:rgba(255,255,255,.08); overflow:hidden; }
+.meter .bar b{ display:block; height:100%; border-radius:99px; background:linear-gradient(90deg,var(--violet),var(--cyan)); }
+
+/* Suggestion chips (Streamlit buttons) */
+.stButton > button{
+  width:100%; border-radius:14px; border:1px solid var(--line); background:rgba(18,24,56,.7); color:var(--text);
+  font-family:'Manrope',sans-serif; font-weight:600; font-size:.88rem; padding:.7rem .9rem; text-align:left; transition:all .18s ease;
+}
+.stButton > button:hover{ border-color:var(--violet); background:rgba(139,92,246,.14); color:#fff; transform:translateY(-2px); }
+.stButton > button:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px; }
+.hint{ color:var(--muted); font-size:.85rem; margin:6px 0 10px; }
+
+/* Chat input */
+[data-testid="stBottom"] > div, [data-testid="stBottomBlockContainer"]{ background:transparent; }
+[data-testid="stChatInput"]{ background:var(--panel); border:1px solid var(--line); border-radius:18px; box-shadow:0 10px 40px rgba(0,0,0,.4); }
+[data-testid="stChatInput"]:focus-within{ border-color:var(--violet); box-shadow:0 0 0 3px rgba(139,92,246,.25); }
+[data-testid="stChatInput"] textarea{ color:var(--text); font-family:'Manrope',sans-serif; }
+[data-testid="stChatInput"] button{ background:linear-gradient(135deg,var(--violet),var(--cyan)); border-radius:12px; color:#fff; }
+
+/* Sidebar */
+[data-testid="stSidebar"]{ background:#0D1230; border-right:1px solid var(--line); }
+.side-brand{ display:flex; align-items:center; gap:12px; margin-bottom:6px; }
+.side-brand b{ font-family:'Sora',sans-serif; font-size:1.2rem; }
+.tag{ display:inline-block; margin:3px 4px 3px 0; padding:4px 12px; border-radius:999px; font-size:.78rem; font-weight:600;
+  background:rgba(139,92,246,.12); border:1px solid rgba(139,92,246,.35); color:#DDD6FE; }
+.foot{ color:var(--muted); font-size:.78rem; text-align:center; margin-top:28px; }
+
+@media (max-width:640px){ .hero h1{ font-size:2rem; } .bubble{ max-width:90%; } }
+@media (prefers-reduced-motion:reduce){ .status i{ animation:none; } .stButton > button{ transition:none; } }
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
+
+# ---------------------------------------------------------------
+# State
+# ---------------------------------------------------------------
+st.session_state.setdefault("messages", [])
+
+
+def ask(q):
+    st.session_state.pending = q
+
+
+def clear_chat():
+    st.session_state.messages = []
+
+
+# ---------------------------------------------------------------
+# Sidebar
+# ---------------------------------------------------------------
+with st.sidebar:
+    st.markdown(
+        f'<div class="side-brand">{logo_svg(42, "s")}<b>CodeAlpha</b></div>'
+        '<div class="hint">Your AI FAQ assistant</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown("**Ask me about**")
+    st.markdown(
+        "".join(f'<span class="tag">{t}</span>' for t in ["AI", "Machine Learning", "NLP", "Python", "Chatbots"]),
+        unsafe_allow_html=True,
+    )
+    st.markdown("&nbsp;")
+    st.button("🗑️  Clear conversation", on_click=clear_chat)
+    st.markdown(f'<div class="foot">{len(faq_data)} questions in the knowledge base</div>', unsafe_allow_html=True)
+
+
+# ---------------------------------------------------------------
+# Handle new input (typed or clicked suggestion)
+# ---------------------------------------------------------------
+typed = st.chat_input("Ask anything about AI…")
+question = typed or st.session_state.pop("pending", None)
+
+if question:
+    st.session_state.messages.append({"role": "user", "content": question})
+    answer, score = get_best_answer(question)
+    if score < THRESHOLD:
+        st.session_state.messages.append(
+            {
+                "role": "assistant",
+                "content": "I couldn't find a close match for that. Try asking about AI, machine learning, NLP, Python, or chatbots.",
+                "score": None,
+            }
+        )
+    else:
+        st.session_state.messages.append({"role": "assistant", "content": answer, "score": score})
+
+
+# ---------------------------------------------------------------
+# Hero
+# ---------------------------------------------------------------
+st.markdown(
+    f"""<div class="hero">{logo_svg(76, "h")}<h1>CodeAlpha</h1>
+<p>Ask a question and get the most relevant answer from our knowledge base.</p>
+<span class="status"><i></i>Online and ready</span></div>""",
+    unsafe_allow_html=True,
+)
+
+
+# ---------------------------------------------------------------
+# Suggestions (shown until the first message)
+# ---------------------------------------------------------------
+if not st.session_state.messages:
+    st.markdown('<div class="hint">Try one of these:</div>', unsafe_allow_html=True)
+    picks = [item["question"] for item in faq_data[:4]]
+    cols = st.columns(2)
+    for i, q in enumerate(picks):
+        cols[i % 2].button(q, key=f"sug{i}", on_click=ask, args=(q,))
+
+
+# ---------------------------------------------------------------
+# Conversation
+# ---------------------------------------------------------------
+def render(msg):
+    text = html.escape(msg["content"]).replace("\n", "<br>")
+    if msg["role"] == "user":
+        return f'<div class="row user"><div class="av">{user_avatar()}</div><div class="bubble">{text}</div></div>'
+    warn = " warn" if msg.get("score") is None else ""
+    return f'<div class="row bot{warn}"><div class="av">{logo_svg(36, "m")}</div><div class="bubble">{text}</div></div>'
+
+
+st.markdown("".join(render(m) for m in st.session_state.messages), unsafe_allow_html=True)

@@ -9,10 +9,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 THRESHOLD = 0.15
 
-st.set_page_config(
-    page_title="CodeAlpha_chat · AI FAQ Chatbot",
-    layout="centered"
-)
+st.set_page_config(page_title="CodeAlpha_chat · AI FAQ Chatbot", page_icon="💠", layout="centered")
 
 
 # ---------------------------------------------------------------
